@@ -2,7 +2,8 @@
 SELECT sum(sales) AS Total_Sales, 
 sum(profit) AS Total_Profits,
 sum(quantity) AS Total_Quantities,
-count(order_id) AS Total_Orders
+count(DISTINCT order_id) AS Total_Orders,
+sum(quantity) AS Total_Units_Sold
 FROM SampleSuperstore;
 
 ==========================
@@ -13,7 +14,7 @@ FROM SampleSuperstore;
 SELECT region, sum(sales) AS Total_Sales, 
 sum(profit) AS Total_Profit, 
 round((sum(profit)/sum(sales))*100,2) AS Profit_Margin_Percentage, 
-count(order_id) AS Total_Orders, 
+count(DISTINCT order_id) AS Total_Orders, 
 round(avg(discount)*100,2) AS Average_Discount_Percentage FROM SampleSuperstore
 GROUP BY region
 ORDER BY Profit_Margin_Percentage DESC;
@@ -49,7 +50,7 @@ ORDER BY Profit_Margin_Percentage DESC;
 ---- Category Analysis ----
 SELECT category,sum(sales) AS Total_Sales,
 sum(profit) AS Total_Profits,
-COUNT(order_id) AS Total_Orders,
+COUNT(DISTINCT order_id) AS Total_Orders,
 round((sum(profit)/sum(sales))*100,2) AS Profit_Margin_Percentage,
 round(avg(discount)*100,2) AS Average_Discount_Percentage, 
 max(sales) AS Highest_Product_Sale,
@@ -57,5 +58,17 @@ min(profit) AS Lowest_Product_Profit
 FROM SampleSuperstore
 GROUP BY category
 ORDER BY Total_Sales DESC;
-  
+
+---- Sub-Category Analysis of Technology ----
+SELECT category,
+sub_category,
+sum(sales) AS Total_Sales,
+sum(profit) AS Total_Profits,
+round((sum(profit)/sum(sales))*100,2) AS Profit_Margin_Percentage,
+AVG(sales) AS Average_Product_Sale,
+AVG(profit) Average_Product_Profit 
+FROM SampleSuperstore
+WHERE category LIKE 'Technology'
+GROUP BY Sub_Category 
+ORDER BY Total_Sales DESC;
 
