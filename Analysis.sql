@@ -18,7 +18,6 @@ count(DISTINCT order_id) AS Total_Orders,
 round(avg(discount)*100,2) AS Average_Discount_Percentage FROM SampleSuperstore
 GROUP BY region
 ORDER BY Profit_Margin_Percentage DESC;
-GROUP BY state
 
 ---- State Analysis ----
 SELECT state,
@@ -41,6 +40,7 @@ SELECT state,
 sum(sales) AS Total_Sales,
 sum(profit) AS Total_Profit,
 round((sum(profit)/sum(sales))*100,2) AS Profit_Margin_Percentage FROM SampleSuperstore
+GROUP BY state
 ORDER BY Profit_Margin_Percentage DESC;
 
 ==========================
@@ -71,4 +71,32 @@ FROM SampleSuperstore
 WHERE category LIKE 'Technology'
 GROUP BY Sub_Category 
 ORDER BY Total_Sales DESC;
+
+---- Best Selling Products By Quantity ----
+SELECT product_name,
+sum(quantity) AS Units_Sold, 
+sum(sales) AS Total_Sales
+FROM SampleSuperstore
+GROUP BY product_name
+ORDER BY Units_Sold DESC
+LIMIT 10;
+
+---- Top 10 Products by Sales ----
+SELECT product_name, 
+sum(sales) AS Total_Sales, 
+sum(profit) AS Total_Profits
+FROM SampleSuperstore
+GROUP BY product_name
+ORDER BY Total_Sales DESC
+limit 10;
+
+---- Top 15 Loss Making Products ----
+SELECT product_name,
+sum(sales) AS Total_Sales, 
+sum(profit) AS Total_Profit 
+FROM SampleSuperstore
+GROUP BY product_name
+HAVING Total_Profit < 0
+ORDER BY Total_Profit ASC
+LIMIT 15;
 
