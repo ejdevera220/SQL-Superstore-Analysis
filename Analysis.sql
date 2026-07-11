@@ -100,3 +100,31 @@ HAVING Total_Profit < 0
 ORDER BY Total_Profit ASC
 LIMIT 15;
 
+==========================
+### CUSTOMER ANALYSIS ###
+==========================
+
+---- Customers with Best Sales  ----
+SELECT customer_name,
+sum(sales) AS Total_Sales,
+sum(profit) AS Total_Profits
+FROM SampleSuperstore
+GROUP BY customer_name
+ORDER BY Total_Sales DESC;
+
+---- Customers with Best Profit Margins  ----
+SELECT customer_name,
+sum(sales) AS Total_Sales, 
+sum(profit) AS Total_Profits, 
+round((sum(profit)/sum(sales)),2) AS Profit_Margin
+FROM SampleSuperstore
+GROUP BY customer_name
+ORDER BY Profit_Margin DESC;
+
+---- Customers with Best Profit Margins  ----
+
+
+
+
+
+
