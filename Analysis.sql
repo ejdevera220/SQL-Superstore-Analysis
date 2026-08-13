@@ -1,15 +1,17 @@
----- Executive Summary ----
+-- =========================
+-- 1. ### EXECUTIVE SUMMARY ### 
+-- =========================
 SELECT sum(sales) AS Total_Sales, 
 sum(profit) AS Total_Profits,
 sum(quantity) AS Total_Units_Sold,
 COUNT(DISTINCT order_id) AS Total_Orders
 FROM SampleSuperstore;
 
-==========================
-### REGIONAL ANALYSIS ###
-==========================
+-- =========================
+-- 2. ### REGIONAL ANALYSIS ### 
+-- =========================
   
----- Region Analysis ----
+-- 2.1 # Regional Performance # 
 SELECT region, sum(sales) AS Total_Sales, 
 sum(profit) AS Total_Profit, 
 round((SUM(profit) / NULLIF(SUM(sales), 0))*100,2) AS Profit_Margin_Percentage, 
@@ -18,7 +20,7 @@ round(avg(discount)*100,2) AS Average_Discount_Percentage FROM SampleSuperstore
 GROUP BY region
 ORDER BY Profit_Margin_Percentage DESC;
 
----- State Analysis ----
+-- # 2.2 State Performance #
 SELECT state,
 sum(sales) AS Total_Sales,
 sum(profit) AS Total_Profit
@@ -26,7 +28,7 @@ FROM SampleSuperstore
 GROUP BY state
 ORDER BY Total_Sales DESC;
 
----- City Analysis ----
+-- # 2.3 City Performance #
 SELECT city, 
 sum(sales) AS Total_Sales,
 sum(profit) AS Total_Profit
@@ -34,7 +36,7 @@ FROM SampleSuperstore
 GROUP BY city 
 ORDER BY Total_Sales DESC;
 
----- Profit Margin Analysis by State ----
+-- # 2.4 Profit Margin By State #
 SELECT state,
 sum(sales) AS Total_Sales,
 sum(profit) AS Total_Profit,
@@ -42,11 +44,11 @@ round((SUM(profit) / NULLIF(SUM(sales), 0))*100,2) AS Profit_Margin_Percentage F
 GROUP BY state
 ORDER BY Profit_Margin_Percentage DESC;
 
-==========================
-### PRODUCT ANALYSIS ###
-==========================
+-- =========================
+-- 3. ### PRODUCT ANALYSIS ### 
+-- =========================
 
----- Category Analysis ----
+-- # 3.1 Category Performance #
 SELECT category,sum(sales) AS Total_Sales,
 sum(profit) AS Total_Profits,
 COUNT(DISTINCT order_id) AS Total_Orders,
@@ -58,7 +60,7 @@ FROM SampleSuperstore
 GROUP BY category
 ORDER BY Total_Sales DESC;
 
----- Sub-Category Analysis of Technology ----
+-- # 3.2 Technology Sub-Category Performance #
 SELECT category,
 sub_category,
 sum(sales) AS Total_Sales,
@@ -71,7 +73,7 @@ WHERE category LIKE 'Technology'
 GROUP BY Sub_Category 
 ORDER BY Total_Sales DESC;
 
----- Best Selling Products By Quantity ----
+-- # 3.3 Top 10 Best Selling Products by Units Sold #
 SELECT product_name,
 sum(quantity) AS Units_Sold, 
 sum(sales) AS Total_Sales
@@ -80,7 +82,7 @@ GROUP BY product_name
 ORDER BY Units_Sold DESC
 LIMIT 10;
 
----- Top 10 Products by Sales ----
+-- # 3.4 Top 10 Products by Sales #
 SELECT product_name, 
 sum(sales) AS Total_Sales, 
 sum(profit) AS Total_Profits
@@ -89,7 +91,7 @@ GROUP BY product_name
 ORDER BY Total_Sales DESC
 limit 10;
 
----- Top 15 Loss Making Products ----
+-- # 3.5 Top 15 Loss-Making Products #
 SELECT product_name,
 sum(sales) AS Total_Sales, 
 sum(profit) AS Total_Profit 
@@ -99,11 +101,11 @@ HAVING Total_Profit < 0
 ORDER BY Total_Profit ASC
 LIMIT 15;
 
-==========================
-### CUSTOMER ANALYSIS ###
-==========================
+-- =========================
+-- 4. ### CUSTOMER ANALYSIS ### 
+-- =========================
 
----- Top 10 Customers by Sales ----
+-- # 4.1 Top 10 Customers by Sales # 
 SELECT customer_name,
 sum(sales) AS Total_Sales,
 sum(profit) AS Total_Profits
@@ -112,16 +114,17 @@ GROUP BY customer_name
 ORDER BY Total_Sales DESC
 LIMIT 10;
 
----- Customers with Best Profit Margins ----
+-- # 4.2 Top 15 Customers with Best Profit Margins # 
 SELECT customer_name,
 sum(sales) AS Total_Sales, 
 sum(profit) AS Total_Profits, 
 ROUND((SUM(profit) / NULLIF(SUM(sales), 0))*100,2) AS Profit_Margin_Percentage
 FROM SampleSuperstore
 GROUP BY customer_name
-ORDER BY Profit_Margin_Percentage DESC;
+ORDER BY Profit_Margin_Percentage DESC
+LIMIT 15;
 
----- Top Customer Loss Making Orders ----
+-- # 4.3 Top 10 Loss-Making Customers #
 SELECT customer_name,
 ROUND(sum(sales),2) AS Total_Sales,
 ROUND(sum(profit),2) AS Total_Profit,
@@ -129,9 +132,10 @@ sum(quantity) AS Units_Sold
 FROM SampleSuperstore
 GROUP BY customer_name
 HAVING Total_Profit < 0
-ORDER BY Total_Profit ASC;
+ORDER BY Total_Profit ASC
+LIMIT 10;
 
----- Customers with the most orders ----
+-- # 4.4 Top 10 Customers with the Most Orders #
 SELECT customer_name,
 COUNT(DISTINCT order_id) AS Total_Orders,
 ROUND(sum(sales),2) AS Total_Sales,
@@ -142,11 +146,11 @@ FROM SampleSuperstore
 GROUP BY customer_name
 ORDER BY Total_Orders DESC;
 
-==========================
-### SALES ANALYSIS ###
-==========================
+-- =========================
+-- 5. ### SALES ANALYSIS ###  
+-- =========================
 
----- Segment Performance ----
+-- # 5.1 Segment Performance # 
 SELECT segment,
 ROUND(sum(sales),2) AS Total_Sales,
 ROUND(sum(profit),2) AS Total_Profit,
@@ -158,7 +162,7 @@ FROM SampleSuperstore
 GROUP BY segment
 ORDER BY Total_Sales DESC;
 
----- Ship Mode Performance ----
+-- # 5.2 Ship Mode Performance #
 SELECT ship_mode,
 ROUND(sum(sales),2) AS Total_Sales,
 ROUND(sum(profit),2) AS Total_Profit,
@@ -170,11 +174,11 @@ FROM SampleSuperstore
 GROUP BY ship_mode
 ORDER BY Total_Sales DESC;
 
-==========================
-### DISCOUNT ANALYSIS ###
-==========================
+-- =========================
+-- 6. ### DISCOUNT ANALYSIS ### 
+-- =========================
 
----- Profit by Discount Level ----
+-- # 6.1 Profitability by Discount Level #
 SELECT discount,
 ROUND((SUM(profit) / NULLIF(SUM(sales), 0))*100,2) AS Profit_Margin_Percentage,
 ROUND(sum(sales),2) AS Total_Sales,
@@ -185,7 +189,7 @@ FROM SampleSuperstore
 GROUP BY discount
 ORDER BY discount ASC;
 
----- Discount by Category ----
+-- # 6.2 Discount Analysis by Category #
 SELECT category,
 ROUND(AVG(discount)*100,2) AS Average_Discount_Percentage,
 ROUND(SUM(profit) / NULLIF(SUM(sales), 0)*100,2) AS Profit_Margin_Percentage,
@@ -197,7 +201,7 @@ FROM SampleSuperstore
 GROUP BY category
 ORDER BY Profit_Margin_Percentage DESC;
 
----- Discount by Sub-Category ----
+-- # 6.3 Discount Analysis by Sub-Category #
 SELECT sub_category,
 ROUND(AVG(discount)*100,2) AS Average_Discount_Percentage,
 ROUND(SUM(profit) / NULLIF(SUM(sales), 0)*100,2) AS Profit_Margin_Percentage,
@@ -209,7 +213,7 @@ FROM SampleSuperstore
 GROUP BY sub_category
 ORDER BY Profit_Margin_Percentage DESC;
 
----- Discount by Region ----
+-- # 6.4 Discount Analysis by Region #
 SELECT region,
 ROUND(AVG(discount)*100,2) AS Average_Discount_Percentage,
 ROUND(SUM(profit) / NULLIF(SUM(sales), 0)*100,2) AS Profit_Margin_Percentage,
@@ -221,11 +225,11 @@ FROM SampleSuperstore
 GROUP BY region
 ORDER BY Profit_Margin_Percentage DESC;
 
-==========================
-### ORDER ANALYSIS ###
-==========================
+-- =========================
+-- 7. ### ORDER ANALYSIS ###  
+-- =========================
 
----- TOP 10 Orders by Sales ----
+-- # 7.1 TOP 10 Orders by Sales #
 SELECT order_id,
 customer_name,
 ROUND(sum(sales),2) AS Total_Sales,
@@ -236,16 +240,17 @@ GROUP BY order_id, customer_name
 ORDER BY Total_Sales DESC
 LIMIT 10;
 
----- Most Profitable Orders ----
+-- # 7.2 10 Orders with the Highest Profit Margin #
 SELECT order_id,
 ROUND(sum(sales),2) AS Total_Sales,
 ROUND(sum(profit),2) AS Total_Profit,
 ROUND(sum(profit)/NULLIF(sum(sales),0)*100,2) AS Profit_Margin_Percentage
 FROM SampleSuperstore
 GROUP BY order_id, customer_name
-HAVING Profit_Margin_Percentage = 50;
+HAVING Profit_Margin_Percentage = 50
+LIMIT 10;
 
----- Loss Making Orders ----
+-- # 7.3 Top 10 Loss-Making Orders #
 SELECT order_id,
 ROUND(sum(sales),2) AS Total_Sales,
 ROUND(sum(profit),2) AS Total_Profit,
@@ -254,9 +259,10 @@ sum(quantity) AS Total_Units_Sold
 FROM SampleSuperstore
 GROUP BY order_id, customer_name
 HAVING Total_Profit < 0
-ORDER BY Total_profit ASC;
+ORDER BY Total_profit ASC
+LIMIT 10;
 
----- TOP 10 Orders by Number of Products ----
+-- # 7.4 TOP 10 Orders by Number of Products #
 SELECT order_id,
 customer_name,
 COUNT(DISTINCT product_name) AS Different_Products,
@@ -269,13 +275,12 @@ GROUP BY order_id, customer_name
 ORDER BY Different_Products DESC
 LIMIT 10;
 
-==========================
-### TIME ANALYSIS ###
-==========================
+-- =========================
+-- ### 8. TIME ANALYSIS ### 
+-- =========================
 
----- TOP 10 days by Total Sales in 2016 ----
+-- # 8.1 TOP 10 Sales Days in 2016 #
 SELECT order_date,
-order_id,
 ROUND(sum(sales),2) AS Total_Sales,
 ROUND(sum(profit),2) AS Total_Profit,
 COUNT(DISTINCT order_id) AS Total_Orders,
@@ -286,9 +291,8 @@ HAVING order_date LIKE '%2016%'
 ORDER BY Total_Sales DESC
 LIMIT 10;
 
----- TOP 10 Profit Margin Days in 2014 ----
+-- # 8.2 TOP 10 Days by Profit Margin in 2014 #
 SELECT order_date,
-order_id,
 ROUND((SUM(profit) / NULLIF(SUM(sales), 0))*100,2) AS Profit_Margin_Percentage,
 ROUND(sum(sales),2) AS Total_Sales,
 ROUND(sum(profit),2) AS Total_Profit,
@@ -300,9 +304,8 @@ HAVING order_date LIKE '%2014%'
 ORDER BY Profit_Margin_Percentage DESC
 LIMIT 10;
 
----- TOP 10 Loss Making Days in 2017 ----
+-- # 8.3 TOP 10 Loss Making Days in 2017 # 
 SELECT order_date,
-order_id,
 ROUND(sum(sales),2) AS Total_Sales,
 ROUND(sum(profit),2) AS Total_Profit,
 COUNT(DISTINCT order_id) AS Total_Orders,
@@ -314,30 +317,30 @@ AND Total_Profit < 0
 ORDER BY Total_Profit ASC
 LIMIT 10;
 
----- January 2015 Sales ----
+-- # 8.4 January 2015 Daily Sales Performance #
 SELECT order_date,
-order_id,
 ROUND(sum(sales),2) AS Total_Sales,
 ROUND(sum(profit),2) AS Total_Profit,
 sum(quantity) AS Total_Units_Sold,
-ROUND((SUM(profit) / NULLIF(SUM(sales), 0))*100,2) AS Profit_Margin_Percentage,
-discount
+COUNT(DISTINCT order_id) AS Total_Orders,
+ROUND((SUM(profit) / NULLIF(SUM(sales),0)) * 100, 2) AS Profit_Margin_Percentage,
+ROUND(AVG(discount)*100,2) AS Average_Discount_Percentage
 FROM SampleSuperstore
+WHERE order_date LIKE '%/01/2015%'
 GROUP BY order_date
-HAVING order_date LIKE '%/01/2015%'
 ORDER BY Total_Sales DESC;
 
----- July 2015 Sales ----
+-- # 8.5 July 2015 Daily Sales Performance # 
 SELECT order_date,
-order_id,
 ROUND(sum(sales),2) AS Total_Sales,
 ROUND(sum(profit),2) AS Total_Profit,
 sum(quantity) AS Total_Units_Sold,
-ROUND((SUM(profit) / NULLIF(SUM(sales), 0))*100,2) AS Profit_Margin_Percentage,
-discount
+COUNT(DISTINCT order_id) AS Total_Orders,
+ROUND((SUM(profit) / NULLIF(SUM(sales),0)) * 100, 2) AS Profit_Margin_Percentage,
+ROUND(AVG(discount)*100,2) AS Average_Discount_Percentage
 FROM SampleSuperstore
+WHERE order_date LIKE '%/07/2015%'
 GROUP BY order_date
-HAVING order_date LIKE '%/07/2015%'
 ORDER BY Total_Sales DESC;
 
 
