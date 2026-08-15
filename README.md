@@ -32,7 +32,19 @@ Thoughout the project I utilisd:
 - "WHERE" and "HAVING"
 - Calculated Metrics such as Profit Margin
 
+### Analysis Findings:
 
+### Exective Summary 
+| Total_Sales | Total_Profits | Total_Units_Sold | Total_Orders |
+| ----------- | ------------- | ---------------- | ------------ |
+| 2297201     | 286397        | 37873            | 5009         |
+
+- The Superstore generated **$2297201** Total Sales and accumulated **$286397** Profit
+- A total of **5009** orders were placed, representing **37873** units sold.
+- This resulted in an overall profit margin of apporoximately **12.47%**!
+- These figures provide a baseline for following analysis:
+
+###
 
 
 
