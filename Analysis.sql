@@ -1,8 +1,8 @@
 -- =========================
 -- 1. ### EXECUTIVE SUMMARY ### 
 -- =========================
-SELECT sum(sales) AS Total_Sales, 
-sum(profit) AS Total_Profits,
+SELECT ROUND(sum(sales),2) AS Total_Sales, 
+ROUND(sum(profit),2) AS Total_Profits,
 sum(quantity) AS Total_Units_Sold,
 COUNT(DISTINCT order_id) AS Total_Orders
 FROM SampleSuperstore;
