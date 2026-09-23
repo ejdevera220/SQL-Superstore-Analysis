@@ -20,13 +20,26 @@ round(avg(discount)*100,2) AS Average_Discount_Percentage FROM SampleSuperstore
 GROUP BY region
 ORDER BY Profit_Margin_Percentage DESC;
 
--- # 2.2 State Performance #
-SELECT state,
-sum(sales) AS Total_Sales,
-sum(profit) AS Total_Profit
+-- # 2.2 Top and Bottom States by Sales #
+SELECT * FROM
+(SELECT state,
+ROUND(sum(sales),2) AS Total_Sales,
+ROUND(sum(profit),2) AS Total_Profit,
+ROUND((sum(profit)/NULLIF(sum(sales),0))*100,2) AS Profit_Margin_Percentage
 FROM SampleSuperstore
 GROUP BY state
-ORDER BY Total_Sales DESC;
+ORDER BY Total_Sales DESC
+LIMIT 5)
+UNION ALL
+SELECT * FROM
+(SELECT state,
+ROUND(sum(sales),2) AS Total_Sales,
+ROUND(sum(profit),2) AS Total_Profit,
+ROUND((sum(profit)/NULLIF(sum(sales),0))*100,2) AS Profit_Margin_Percentage
+FROM SampleSuperstore
+GROUP BY state
+ORDER BY Total_Sales ASC
+LIMIT 5);
 
 -- # 2.3 City Performance #
 SELECT city, 
