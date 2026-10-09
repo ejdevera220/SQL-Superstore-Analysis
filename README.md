@@ -74,7 +74,7 @@ Throughout the project, I utilized:
 | Wyoming | $1,603.14 | $100.20 | 6.25% |
 
 - **California** was the strongest state, generating the highest total sales and total profit, while **New York** achieved a higher profit margin.
-- **Texas** and **Pennsylvannia** stands out as underpeformers, as both were among the 5 highest states for sales but generated negative profits and profit margins, suggesting that higher sales do not translate to higher profitability.
+- **Texas** and ** Pennsylvania ** stand out as underperformers, as both were among the 5 highest states for sales but generated negative profits and profit margins, suggesting that higher sales do not translate to higher profitability.
 - **North Dakota** generated the lowest sales but maintained a positive profit margin, indicating that low sales volume does not equate to poor profitability.
 - **Maine** was particularly notable, recording relatively low sales while achieving the highest profit margin among the states at **35.77%**.
 
@@ -88,5 +88,23 @@ Throughout the project, I utilized:
 | Furniture | $741,999.80 | $18,451.27 | 1,764 | 2.49% | 17.39% | $4,416.17 | -$1,862.31 |
 | Office Supplies | $719,047.03 | $122,490.80 | 3,742 | 17.04% | 15.73% | $9,892.74 | -$3,701.89 |
 
+- **Technology** was the strongest-performing category overall, generating the highest total sales, profit, and profit margin despite having the fewest orders.
+- **Furniture** significantly underperformed in profitability. Even though it generated substantial sales and more orders than **Technology**, its profit margin was only **2.49%**, which is considerably below **Technology** and **Office Supplies**.
+- **Office Supplies** recorded the highest number of orders but the lowest total sales, suggesting that its orders tend to be lower in value compared with other categories.
+- **Technology** had the lowest average discount but the highest profit margin, whereas **Furniture** had the highest average discount but the lowest profit margin. This highlights a potential relationship between discount and profit margin. 
+- Furthermore, **Technology** also recorded both the highest individual sale and the largest individual profit loss, demonstrating that strong overall profitability can coexist with substantial losses on individual transactions. 
 
+### 3.2 Technology Sub-Category Performance
+
+| **Category** | **Sub-Category** | **Total Sales** | **Total Profit** | **Total Orders** | **Profit Margin (%)** | **Average Product Sale** | **Average Product Profit** |
+| ------------ | ---------------- | --------------: | ---------------: | ---------------: | --------------------: | -----------------------: | -------------------------: |
+| Technology | Phones | $330,007.05 | $44,515.73 | 814 | 13.49% | $371.21 | $50.07 |
+| Technology | Machines | $189,238.63 | $3,384.76 | 112 | 1.79% | $1,645.55 | $29.43 |
+| Technology | Accessories | $167,380.32 | $41,936.64 | 718 | 25.05% | $215.97 | $54.11 |
+| Technology | Copiers | $149,528.03 | $55,617.82 | 68 | 37.20% | $2,198.94 | $817.91 |
+
+- **Copiers** generated the highest total profit and profit margin despite having the fewest orders, suggesting a potential opportunity to increase sales volume while maintaining strong profitability.
+- **Phones** generated the highest total sales and order value; however, their profit margin was lower than **Accessories** and **Copiers**, illustrating that higher sales volume does not necessarily imply greater profitability.
+- **Machines** recorded the second-highest total sales but the lowest profit margin of 1.79%. Despite having the highest average product sale of **$1645.55**, their average product sale was the lowest of **$29.43**, suggesting potential inefficiencies in pricing and costs that warrant further investigation. 
+- **Accessories** demonstrated strong profitability, generating a similar total profit to **Phones** despite its considerably low sales, supported by a higher profit margin of **25.05%**
 
