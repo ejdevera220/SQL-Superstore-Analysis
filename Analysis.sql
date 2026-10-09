@@ -121,8 +121,10 @@ LIMIT 15;
 
 -- # 4.1 Top 10 Customers by Sales # 
 SELECT customer_name,
-sum(sales) AS Total_Sales,
-sum(profit) AS Total_Profits
+ROUND(sum(sales),2) AS Total_Sales,
+ROUND(sum(profit),2) AS Total_Profit,
+COUNT(DISTINCT order_id) AS Total_Orders,
+ROUND((sum(profit)/NULLIF(sum(sales),0))*100,2) AS Profit_Margin_Percentage
 FROM SampleSuperstore
 GROUP BY customer_name
 ORDER BY Total_Sales DESC
