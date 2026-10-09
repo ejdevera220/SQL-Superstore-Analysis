@@ -78,6 +78,7 @@ SELECT category,
 sub_category,
 sum(sales) AS Total_Sales,
 sum(profit) AS Total_Profits,
+COUNT(DISTINCT order_id) AS Total_Orders,
 round((SUM(profit) / NULLIF(SUM(sales), 0))*100,2) AS Profit_Margin_Percentage,
 AVG(sales) AS Average_Product_Sale,
 AVG(profit) Average_Product_Profit 
