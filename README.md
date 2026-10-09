@@ -79,7 +79,6 @@ Throughout the project, I utilized:
 - **Maine** was particularly notable, recording relatively low sales while achieving the highest profit margin among the states at **35.77%**.
 
 ### 3. Product Analysis
-### 3.1 Category Analysis
 ### 3.1 Category Performance
 
 | **Category** | **Total Sales** | **Total Profit** | **Total Orders** | **Profit Margin (%)** | **Average Discount (%)** | **Highest Individual Sale** | **Lowest Individual Profit** |
@@ -107,4 +106,57 @@ Throughout the project, I utilized:
 - **Phones** generated the highest total sales and order value; however, their profit margin was lower than **Accessories** and **Copiers**, illustrating that higher sales volume does not necessarily imply greater profitability.
 - **Machines** recorded the second-highest total sales but the lowest profit margin of 1.79%. Despite having the highest average product sale of **$1645.55**, their average product sale was the lowest of **$29.43**, suggesting potential inefficiencies in pricing and costs that warrant further investigation. 
 - **Accessories** demonstrated strong profitability, generating a similar total profit to **Phones** despite its considerably low sales, supported by a higher profit margin of **25.05%**
+
+
+### 4. Customer Analysis
+### 4.1 Top 10 Customers by Sales
+
+| **Customer Name** | **Total Sales** | **Total Profit** | **Total Orders** | **Profit Margin (%)** |
+| ----------------- | --------------: | ---------------: | ---------------: | --------------------: |
+| Sean Miller | $25,043.05 | -$1,980.74 | 5 | -7.91% |
+| Tamara Chand | $19,052.22 | $8,981.32 | 5 | 47.14% |
+| Raymond Buch | $15,117.34 | $6,976.10 | 6 | 46.15% |
+| Tom Ashbrook | $14,595.62 | $4,703.79 | 4 | 32.23% |
+| Adrian Barton | $14,473.57 | $5,444.81 | 10 | 37.62% |
+| Ken Lonsdale | $14,175.23 | $806.85 | 12 | 5.69% |
+| Sanjit Chand | $14,142.33 | $5,757.41 | 9 | 40.71% |
+| Hunter Lopez | $12,873.30 | $5,622.43 | 6 | 43.68% |
+| Sanjit Engle | $12,209.44 | $2,650.68 | 11 | 21.71% |
+| Christopher Conant | $12,129.07 | $2,177.05 | 5 | 17.95% |
+
+- **Tamara Chand** was the most profitable customer among the top 10 sales, generating the highest total profit and profit margin of **47.14%**, despite having fewer sales than **Sean Miller**
+- Although **Sean Miller** generated the highest total sales, he was the only customer among the top 10 to record negative total profit and profit margins, highlighting again that high sales don't translate to high profit.
+- **Ken Lonsdale** placed the most orders but generated relatively low total profit and a profit margin of just **5.69%**. In contrast, **Ken Lonsdale** also placed a lot of orders but achieved substantially higher profitability, suggesting that order frequency does not necessarily indicate greater profits.
+- **Tom Ashbrook** placed the fewest orders but still generated strong total sales and a profit margin of **32.23%**, suggesting that customers with fewer orders can still contribute to profitability.
+
+### 4.2 Top 10 Loss-Making Customers
+
+| **Customer Name** | **Total Sales** | **Total Profit** | **Profit Margin (%)** | **Units Sold** |
+| ----------------- | --------------: | ---------------: | --------------------: | -------------: |
+| Cindy Stewart | $5,690.05 | -$6,626.39 | -116.46% | 40 |
+| Grant Thornton | $9,351.21 | -$4,108.66 | -43.94% | 26 |
+| Luke Foster | $3,930.51 | -$3,583.98 | -91.18% | 69 |
+| Sharelle Roach | $3,233.48 | -$3,333.91 | -103.11% | 34 |
+| Henry Goldwyn | $3,247.64 | -$2,797.96 | -86.15% | 68 |
+| Nathan Cano | $2,218.99 | -$2,204.81 | -99.36% | 38 |
+| Sean Braxton | $8,057.89 | -$2,082.75 | -25.85% | 84 |
+| Sean Miller | $25,043.05 | -$1,980.74 | -7.91% | 50 |
+| Christine Phan | $5,888.27 | -$1,850.30 | -31.42% | 59 |
+| Natalie Fritzler | $8,322.83 | -$1,695.97 | -20.38% | 52 |
+- **Cinder Stewart** generated the greatest total profit loss of **$6,626.39**, despite recording **$5,690.05** in sales. Both **Cindy Stewart** and **Sharelle Roach** recorded profit margins below **-100%**, indicating that their losses exceeded the revenue generated from their purchases.
+- **Sean Miller** appeared in the Top 10 Customers by Sales but also in the Top 10 Loss-Making Customers analysis, further highlighting that high sales revenue does not equate to higher profitability.
+- **Grant Thornton** generated a higher total profit loss than **Luke Foster**, despite having a lower profit margin loss of **-43.94%** compared to **-91.18%**. This highlights the distinction between absolute and relative losses, demonstrating that a greater monetary loss does not necessarily correspond to a worse profit margin.
+
+### 5. Sales Analysis
+### 5.1 Segment Performance
+
+| **Segment** | **Total Sales** | **Total Profit** | **Total Orders** | **Total Units Sold** | **Profit Margin (%)** | **Average Discount (%)** |
+| ----------- | --------------: | ---------------: | ---------------: | -------------------: | --------------------: | -----------------------: |
+| Consumer | $1,161,401.34 | $134,119.21 | 2,586 | 19,521 | 11.55% | 15.81% |
+| Corporate | $706,146.37 | $91,979.13 | 1,514 | 11,608 | 13.03% | 15.82% |
+| Home Office | $429,653.15 | $60,298.68 | 909 | 6,744 | 14.03% | 14.71% |
+-**Consumer** generated the highest total sales, total profit, orders, and total units sold, but recorded the lowest profit margin of **11.15%**
+-Total sales and profit decreased alongside order volume across all segments, suggesting that higher order volume is associated with greater overall revenue and profit in this data set. 
+- **Home Office** generated the lowest total sales and profit but achieved the highest profit margin **14.03%**, demonstrating that lower revenue does not necessarily indicate weaker relative profitability.
+- **Home Office** also recorded the lowest average discount and the highest profit margin. This suggests that discounting may warrant further investigation, although the three segments do not establish a consistent relationship between discounts and profitability.
 
