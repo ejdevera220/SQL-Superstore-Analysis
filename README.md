@@ -155,8 +155,8 @@ Throughout the project, I utilized:
 | Consumer | $1,161,401.34 | $134,119.21 | 2,586 | 19,521 | 11.55% | 15.81% |
 | Corporate | $706,146.37 | $91,979.13 | 1,514 | 11,608 | 13.03% | 15.82% |
 | Home Office | $429,653.15 | $60,298.68 | 909 | 6,744 | 14.03% | 14.71% |
--**Consumer** generated the highest total sales, total profit, orders, and total units sold, but recorded the lowest profit margin of **11.15%**
--Total sales and profit decreased alongside order volume across all segments, suggesting that higher order volume is associated with greater overall revenue and profit in this data set. 
+- **Consumer** generated the highest total sales, total profit, orders, and total units sold, but recorded the lowest profit margin of **11.15%**
+- Total sales and profit decreased alongside order volume across all segments, suggesting that higher order volume is associated with greater overall revenue and profit in this data set. 
 - **Home Office** generated the lowest total sales and profit but achieved the highest profit margin **14.03%**, demonstrating that lower revenue does not necessarily indicate weaker relative profitability.
 - **Home Office** also recorded the lowest average discount and the highest profit margin. This suggests that discounting may warrant further investigation, although the three segments do not establish a consistent relationship between discounts and profitability.
 
