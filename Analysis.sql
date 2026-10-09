@@ -144,6 +144,7 @@ LIMIT 15;
 SELECT customer_name,
 ROUND(sum(sales),2) AS Total_Sales,
 ROUND(sum(profit),2) AS Total_Profit,
+ROUND((SUM(profit) / NULLIF(SUM(sales), 0)) * 100, 2) AS Profit_Margin_Percentage,
 sum(quantity) AS Units_Sold
 FROM SampleSuperstore
 GROUP BY customer_name
