@@ -334,7 +334,7 @@ AND Total_Profit < 0
 ORDER BY Total_Profit ASC
 LIMIT 10;
 
--- # 8.4 January 2015 Daily Sales Performance #
+-- # 8.4 Top 10 Sales days in January 2015 #
 SELECT order_date,
 ROUND(sum(sales),2) AS Total_Sales,
 ROUND(sum(profit),2) AS Total_Profit,
@@ -343,11 +343,12 @@ COUNT(DISTINCT order_id) AS Total_Orders,
 ROUND((SUM(profit) / NULLIF(SUM(sales),0)) * 100, 2) AS Profit_Margin_Percentage,
 ROUND(AVG(discount)*100,2) AS Average_Discount_Percentage
 FROM SampleSuperstore
-WHERE order_date LIKE '%/01/2015%'
+WHERE order_date LIKE '1/%/2015'
 GROUP BY order_date
-ORDER BY Total_Sales DESC;
+ORDER BY Total_Sales DESC
+LIMIT 10;
 
--- # 8.5 July 2015 Daily Sales Performance # 
+-- # 8.5 Top 10 Sales days in July 2015 # 
 SELECT order_date,
 ROUND(sum(sales),2) AS Total_Sales,
 ROUND(sum(profit),2) AS Total_Profit,
@@ -356,8 +357,9 @@ COUNT(DISTINCT order_id) AS Total_Orders,
 ROUND((SUM(profit) / NULLIF(SUM(sales),0)) * 100, 2) AS Profit_Margin_Percentage,
 ROUND(AVG(discount)*100,2) AS Average_Discount_Percentage
 FROM SampleSuperstore
-WHERE order_date LIKE '%/07/2015%'
+WHERE order_date LIKE '7/%/2015'
 GROUP BY order_date
-ORDER BY Total_Sales DESC;
+ORDER BY Total_Sales DESC
+LIMIT 10;
 
 
